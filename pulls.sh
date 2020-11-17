@@ -16,7 +16,8 @@ do
 var=$(curl -s -H "$H2" 'https://api.github.com/repos/datamove/linux-git2/pulls?state=all&page='"$x"'&per_page=100'  | jq 'map(select(.user.login=="'"$1"'")) | .[].number')
 NEW+=(`echo ${var[@]}`)
 done
-echo "EARLIEST ${NEW[0]}"
+l=${#NEW[@]}-1
+echo "EARLIEST ${NEW[l]}"
 
 NEW=()
 for x in 1 2
@@ -24,7 +25,7 @@ do
 var=$(curl -s -H "$H2" 'https://api.github.com/repos/datamove/linux-git2/pulls?state=all&page='"$x"'&per_page=100'  | jq 'map(select(.user.login=="'"$1"'")) | .[].merged_at')
 NEW+=(`echo ${var[@]}`)
 done
-if [ "${NEW[0]}" = "null" ]
+if [ "${NEW[l]}" = "null" ]
 then
 echo "MERGED 0"
 else
