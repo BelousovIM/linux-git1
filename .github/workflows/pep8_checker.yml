@@ -1,0 +1,27 @@
+name: automerge
+on:
+  pull_request_target:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+    paths:
+    - '*.py'
+  status: {}
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: merge pull request
+        run: |
+          curl \
+          -X PUT \
+          -H "Accept: application/vnd.github.v3+json" \
+           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          ${{ github.event.pull_request.url }}/merge \
+          -d '{"commit_title":"automerging pr ${{github.event.pull_request.number }} for ${{ github.event.pull_request.user.login }}" }'
