@@ -52,7 +52,7 @@ def plot_triang(i, color='green'):
 if __name__ == '__main__':
     for i in range(1, len(sys.argv)):
         points, triang = mesh_download(sys.argv[i])
-        plt.figure(figsize=(5.5, 5.5))    
+        fig = plt.figure(figsize=(5.5, 5.5))    
         coord = [i[1] for i in points.items()]
         ind = [i[0] for i in points.items()]
         x = [i[0] for i in coord]
@@ -60,5 +60,6 @@ if __name__ == '__main__':
         plt.scatter(x, y)
         for i in triang.keys():
             plot_triang(i, 'green')
-        plt.show()
+        fig.savefig(sys.argv[i] + 'jpg')
+        
 
