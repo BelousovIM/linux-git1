@@ -1,2 +1,2 @@
-x = np.array([1,2,3])
+x = np.array([1,2,10])
 print(x)
