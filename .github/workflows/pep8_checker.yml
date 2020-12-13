@@ -9,6 +9,11 @@ jobs:
   pep8_checker:
     runs-on: ubuntu-latest
     steps:
+      - name: Display the path
+        run: |
+          import os
+          print(os.environ['PATH'])
+        shell: python
       - name: import
         run: |
           import numpy as np
