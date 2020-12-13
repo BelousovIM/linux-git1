@@ -1,6 +1,6 @@
 name: pep8_checker
 on:
-  pulls:
+  push:
     paths:
     - '*.ipynb'
   status: {}
@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: import
         run: |
-	  import numpy as np
+          import numpy as np
           import matplotlib.pyplot as plt
           print(np.__version__)	
-	shell: python
+        shell: python
