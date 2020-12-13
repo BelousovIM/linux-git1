@@ -31,8 +31,6 @@ jobs:
           git config user.name "${{ github.actor }}"
 
           git pull ${REMOTE}
-          git checkout master
           git add .
-          git status
           git commit -am "Add new comment"
-          git push ${REMOTE} master
+          git push ${REMOTE}
