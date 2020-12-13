@@ -2,8 +2,8 @@ name: pep8_checker
 on:
   push:
     paths:
-    - '*.ipynb'
-    - '*.py'
+    - '**.ipynb'
+    - '**.py'
   status: {}
 jobs:
   pep8_checker:
@@ -17,4 +17,4 @@ jobs:
       - name: Python Style Checker
         run: |
           pip install flake8
-          flake8 .
+          flake8
