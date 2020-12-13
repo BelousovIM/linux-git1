@@ -23,4 +23,5 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install flake8 numpy matplotlib
+          flake8 ./project2
       - run: python ./project2/project.py $(find ./project2 -name "*.k")
