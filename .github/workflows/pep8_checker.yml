@@ -8,9 +8,15 @@ jobs:
   pep8_checker:
     runs-on: ubuntu-latest
     steps:
-      - name: Display the path
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Display the path and python`s version 
         run: |
           import os
+          import sys
+          print(sys.version)
           print(os.environ['PATH'])
         shell: python
       - name: Python Style Checker
