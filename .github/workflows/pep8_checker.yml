@@ -3,6 +3,7 @@ on:
   push:
     paths:
     - '*.ipynb'
+    - '*.py'
   status: {}
 jobs:
   pep8_checker:
