@@ -60,10 +60,6 @@ if __name__ == '__main__':
         plt.scatter(x, y)
         for i in triang.keys():
             plot_triang(i, 'green')
-<<<<<<< HEAD
         fig.savefig(sys.argv[argv_i][:-2] + '.jpg')
-=======
-        fig.savefig(sys.argv[argv_i] + '.jpg')
->>>>>>> 817e4e236095dacd5647a84b8d9622e78b23c1a3
         
 
