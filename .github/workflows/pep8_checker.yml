@@ -8,8 +8,8 @@ jobs:
   pep8_checker:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: '3.8'
       - name: Display the path and python`s version 
@@ -24,6 +24,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 numpy 
           flake8
-      - name: Python execute
-        run: | 
-          python3 example.py
+      - run: python example.py
