@@ -15,3 +15,5 @@ jobs:
           import matplotlib.pyplot as plt
           print(np.__version__)	
         shell: python
+      - name: Python Style Checker
+        uses: andymckay/pycodestyle-action@0.1.3
