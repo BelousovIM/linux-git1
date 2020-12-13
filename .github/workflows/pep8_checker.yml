@@ -1,27 +1,16 @@
-name: automerge
+name: pep8_checker
 on:
-  pull_request_target:
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
+  pulls:
     paths:
-    - '*.py'
+    - '*.ipynb'
   status: {}
 jobs:
-  automerge:
+  pep8_checker:
     runs-on: ubuntu-latest
     steps:
-      - name: merge pull request
+      - name: import
         run: |
-          curl \
-          -X PUT \
-          -H "Accept: application/vnd.github.v3+json" \
-           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-          ${{ github.event.pull_request.url }}/merge \
-          -d '{"commit_title":"automerging pr ${{github.event.pull_request.number }} for ${{ github.event.pull_request.user.login }}" }'
+          import numpy as np
+	  import matplotlib.pyplot as plt
+	  print(np.__version__)	
+	shell: python
